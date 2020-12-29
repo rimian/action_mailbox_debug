@@ -24,7 +24,7 @@ Or install it yourself as:
 
 Open up console and load an eml file:
 
-```
+```ruby
 inbound_email = ActionMailboxDebug::Read.create_inbound_email_from_file 'path/to/message.eml'
 ```
 
@@ -32,6 +32,6 @@ This will return an `ActionMailbox::InboundEmail` object.
 
 Then, you can run the processing job and fix any errors you might have:
 
-```
+```ruby
 ActionMailbox::RoutingJob.perform_now inbound_mail
 ```
