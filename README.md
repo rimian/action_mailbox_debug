@@ -22,13 +22,12 @@ Or install it yourself as:
 
 ## Usage
 
-Open up console and load an eml file:
-
 ```ruby
-inbound_email = ActionMailboxDebug::Read.create_inbound_email_from_file 'path/to/message.eml'
+include ActionMailboxDebug::InboundEmail
+create_inbound_email_from_file! 'tmp/test.eml'
 ```
 
-This will return an `ActionMailbox::InboundEmail` object.
+This will return an `ActionMailbox::InboundEmail` object or fail if it already exists.
 
 Then, you can run the processing job and fix any errors you might have:
 

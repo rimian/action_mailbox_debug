@@ -4,7 +4,7 @@ require_relative 'lib/action_mailbox_debug/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'action_mailbox_debug'
-  spec.version       = ActionMailboxDebug::VERSION
+  spec.version       = ActionMailboxDebug.gem_version
   spec.authors       = ['Rimian Perkins']
   spec.email         = ['hello@rimian.com.au']
 
