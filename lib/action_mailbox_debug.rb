@@ -6,12 +6,14 @@ module ActionMailboxDebug
   module InboundEmail
     def create_inbound_email_from_file!(file_path, &block)
       mail_file = File.read(file_path)
+
+      block.call(mail_file) if block_given?
+
       mail = Mail.new mail_file
 
-      # The test helper fails silently here.
-      self.validate_message_id(mail)
+      # The ActionMailbox::InboundEmail test helper fails silently here.
+      validate_message_id(mail)
 
-      # block.call mail unless block.nil?
       ActionMailbox::InboundEmail.create_and_extract_message_id!(mail.to_s, status: :processing)
     end
 

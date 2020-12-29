@@ -29,6 +29,15 @@ create_inbound_email_from_file! 'tmp/test.eml'
 
 This will return an `ActionMailbox::InboundEmail` object or fail if it already exists.
 
+You may wish to do something to the file beforehand
+
+```ruby
+include ActionMailboxDebug::InboundEmail
+create_inbound_email_from_file! 'tmp/test.eml' do |file|
+  file.sub('__subject__', 'testing')
+end
+```
+
 Then, you can run the processing job and fix any errors you might have:
 
 ```ruby
