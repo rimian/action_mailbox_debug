@@ -35,3 +35,7 @@ Then, you can run the processing job and fix any errors you might have:
 ```ruby
 ActionMailbox::RoutingJob.perform_now inbound_mail
 ```
+
+## Known issues
+
+The [helper](https://edgeapi.rubyonrails.org/classes/ActionMailbox/InboundEmail/MessageId.html#method-i-create_and_extract_message_id-21) fails silently and returns `nil` if a message already exists with the same id. Bummer!
