@@ -38,8 +38,12 @@ create_inbound_email_from_file! 'tmp/test.eml' do |file|
 end
 ```
 
-Then, you can run the processing job and fix any errors you might have:
+Then, you can route the inbound email and fix any errors you might have:
 
+```ruby
+inbound_mail.route
+```
+Or:
 ```ruby
 ActionMailbox::RoutingJob.perform_now inbound_mail
 ```
