@@ -7,7 +7,7 @@ module ActionMailboxDebug
     def create_inbound_email_from_file!(file_path, &block)
       mail_file = File.read(file_path)
 
-      block.call(mail_file) if block_given?
+      mail_file = block.call(mail_file) if block_given?
 
       mail = Mail.new mail_file
 
